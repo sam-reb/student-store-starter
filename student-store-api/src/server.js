@@ -7,6 +7,7 @@ const morgan = require("morgan");
 // import routes files
 const productRoutes = require("../routes/productRoutes");
 const orderRoutes = require("../routes/orderRoutes");
+const orderItemsRoutes = require("../routes/orderItemsRoutes");
 
 // Middleware
 const app = express();
@@ -21,6 +22,7 @@ app.get("/", (req, res) => {
 // add product routes here
 app.use("/products", productRoutes);
 app.use("/orders", orderRoutes);
+app.use("/orderItems", orderItemsRoutes);
 
 // app.get("/products", (req, res) => {
 //   let filteredProducts = products;
@@ -48,7 +50,9 @@ app.use("/orders", orderRoutes);
 // Handle 404 Error - Not Found
 app.use((req, res, next) => {
   console.log("jklljk");
-  res.status(404).send("Sorry, this page does not exist");
+  res
+    .status(404)
+    .send("Sorry, this page does not exist (Problem in server.js file)");
 });
 
 app.listen(port, () => {

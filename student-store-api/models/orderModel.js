@@ -3,7 +3,11 @@ const prisma = new PrismaClient();
 
 // gets all orders
 const getAllOrders = async () => {
-  return prisma.order.findMany();
+  return prisma.order.findMany({
+    include: {
+      order_items: true,
+    },
+  });
 };
 
 // get an order by its ID
