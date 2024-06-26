@@ -13,4 +13,7 @@ router.put("/:id", orderController.updateOrder);
 // delete an order
 router.delete("/:id", orderController.deleteOrder);
 
+// add an item to an order
+router.post("/:id/items", orderController.addItemsToOrder);
+
 module.exports = router;

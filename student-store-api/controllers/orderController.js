@@ -54,10 +54,25 @@ const deleteOrder = async (req, res) => {
   }
 };
 
+const addItemsToOrder = async (req, res) => {
+  try {
+    const addedOrderItem = await orderModel.addItemToOrder(
+      req.params.id,
+      req.body
+    );
+    addedOrderItem
+      ? res.status(200).json(addedOrderItem)
+      : res.status(404).json({ error: "cannot add item to order" });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
 module.exports = {
   getAllOrders,
   getOrderById,
   createOrder,
   updateOrder,
   deleteOrder,
+  addItemsToOrder,
 };
