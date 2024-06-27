@@ -68,6 +68,33 @@ const addItemsToOrder = async (req, res) => {
   }
 };
 
+const getOrderTotal = async (req, res) => {
+  try {
+    const order = await orderModel.getOrderTotal(req.params.id);
+    order
+      ? res.status(200).json(order)
+      : res.status(404).json({ error: "Order not found" });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+// const deleteItemFromOrder = async (req, res) => {
+//   try {
+//     const deletedOrderItem = await orderModel.deleteItemFromOrder(
+//       req.params.id,
+//       req.params.order_item_id
+//     );
+//     deletedOrderItem
+//       ? res.status(200).json(deletedOrderItem)
+//       : res
+//           .status(400)
+//           .json({ error: "The item you are trying to delete does not exist" });
+//   } catch (error) {
+//     res.status(400).json({ error: error.message });
+//   }
+// };
+
 module.exports = {
   getAllOrders,
   getOrderById,
@@ -75,4 +102,5 @@ module.exports = {
   updateOrder,
   deleteOrder,
   addItemsToOrder,
+  getOrderTotal,
 };
