@@ -21,6 +21,12 @@
   display: flex;
   flex-direction: column;
 }
+
+.CheckoutSuccess .card .card-body {
+  color: Black;
+  background-color: white;
+}
+
 .CheckoutSuccess .card .card-title {
   color: white;
   font-weight: 20px;

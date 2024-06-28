@@ -20,6 +20,7 @@
   flex: 1;
   display: flex;
   border-top: solid 1px var(--border-color);
+  cursor: pointer;
 }
 .ProductCard .info {
   flex: 1;

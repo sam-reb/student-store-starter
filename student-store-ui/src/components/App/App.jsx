@@ -93,6 +93,8 @@ function App() {
       setOrder(updatedOrderData);
     }
     setCart({});
+    setUserInfo({ id: "", email: "" });
+    setError(null);
     setIsCheckingOut(false);
   };
 
